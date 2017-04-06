@@ -18,6 +18,10 @@ $(document).ready(function() {
 	});
 });
 
+function Refresh(){
+	location.reload(true);
+}
+
 function createForm(fieldnums){
 	var boxes=1;
 	for (i=0; i<fieldnums; i++)
@@ -27,11 +31,19 @@ function createForm(fieldnums){
 
 		boxes=boxes+1;
 	}
-	$("#displayform").append("<br><br><a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>");
+	addMainBtns();
+}
 
-	$("#displayform").append("&nbsp;&nbsp;&nbsp;&nbsp;<a onclick='LockWeights();'><input type='button' id='weight-lock' value='Weight Lock' name='weight-lock'/></a>");
+function addMainBtns(){
+	var displayBtns = $("#form-buttons");
+	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
+	displayBtns.append(calcBtn);
+	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock' value='Weight Lock' name='weight-lock'/></a>";
+	displayBtns.append(weightBtn);
+	var startOvBtn = "<a onclick='Refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
+	displayBtns.append(startOvBtn);
 
-	$("#displayform").append("&nbsp;&nbsp;&nbsp;&nbsp;<a onclick='Refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>");
+	
 }
 
 function LockWeights(){
@@ -59,10 +71,6 @@ function LockWeights(){
 		}	
 }
 
-function Refresh(){
-	location.reload(true);
-}
-
 function startCalc(){
 	var checkW = WeightIsCorrect(numboxes);
 	if (checkW ==0){
@@ -75,8 +83,8 @@ function startCalc(){
 			//arr.push(($('#weight'+i).val())/100);
 			//arr.push( [ (LetterToNumber($('#grade'+i).val().toUpperCase())),(($('#weight'+i).val())/100) ] );
 			arr.push( WeightedGrade( (LetterToNumber($('#grade'+i).val().toUpperCase())) , (($('#weight'+i).val())/100) ) );
-			console.log($('#weight'+i).val());
-			console.log(($('#weight'+i).val())/100);
+			//console.log($('#weight'+i).val());
+			//console.log(($('#weight'+i).val())/100);
 		}
 		var total=0;
 		for(z=0;z<arr.length;z++)
@@ -140,6 +148,8 @@ function WeightedGrade (grade, weight){
 	var val = grade * weight;
 	return val;
 }
+
+//var numberGrades = { 'A' : 98, 'A-': 92, 'B+': 88, 'B' : 85, 'B-': 82, 'C+': 78, 'C' : 75, 'C-': 72, 'D+': 68, 'D' : 65, 'D-': 62, 'F': 62}
 
 function LetterToNumber(letter){
 	switch (letter){

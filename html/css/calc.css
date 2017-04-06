@@ -3,10 +3,16 @@
 
 .weighboxlabel {
   text-align: left;
-  padding-left: 195px; }
+  padding-left: 10%; }
 
 .hide {
   display: none; }
 
 input[type='number'] {
-  margin-left: 100px; }
+  margin-left: 3%; }
+
+#form-buttons {
+  padding-top: 20px; }
+
+#weight-lock, #refresh {
+  margin-left: 20px; }
