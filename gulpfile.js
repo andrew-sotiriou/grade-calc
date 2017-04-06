@@ -27,6 +27,8 @@ gulp.task('scripts', function() {
 
 gulp.task('watch', ['browserSync', 'sass', 'move-html', 'scripts'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']); 
+  gulp.watch('app/js/*.js', ['scripts']); 
+  gulp.watch('app/index.html', ['move-html']); 
   // Other watchers
 })
 

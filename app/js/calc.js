@@ -1,11 +1,22 @@
-$(document).ready(function() {
+$(document).ready(function() { 
     $('#input-grades').click(function() {
  		numboxes = $('#number-of-grades').val();
  		$("h3,form").removeClass("hide");
  		$("p.display,form.display").addClass("hide");
  		createForm(numboxes);
  		weightLocker = false;
-   	});
+   	}); 
+	$('#input-grades').keypress(function (e) {
+		if (e.which == 13) {
+			//$('form#initForm').submit();
+			numboxes = $('#number-of-grades').val();
+			$("h3,form").removeClass("hide");
+			$("p.display,form.display").addClass("hide");
+			createForm(numboxes);
+			weightLocker = false;
+			return false;
+		}
+	});
 });
 
 function createForm(fieldnums){
