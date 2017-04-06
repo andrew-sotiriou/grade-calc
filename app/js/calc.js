@@ -6,16 +6,15 @@ $(document).ready(function() {
  		createForm(numboxes);
  		weightLocker = false;
    	}); 
-	$('#input-grades').keypress(function (e) {
-		if (e.which == 13) {
-			//$('form#initForm').submit();
+	$('#initForm input').keydown(function(e) {
+	    if (e.keyCode == 13) {
+	    	e.preventDefault();
 			numboxes = $('#number-of-grades').val();
 			$("h3,form").removeClass("hide");
 			$("p.display,form.display").addClass("hide");
 			createForm(numboxes);
 			weightLocker = false;
-			return false;
-		}
+	    }
 	});
 });
 
