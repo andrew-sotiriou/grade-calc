@@ -26,9 +26,7 @@ function createForm(fieldnums){
 	var boxes=1;
 	for (i=0; i<fieldnums; i++)
 	{
-
 		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/>");
-
 		boxes=boxes+1;
 	}
 	addMainBtns();
@@ -42,8 +40,6 @@ function addMainBtns(){
 	displayBtns.append(weightBtn);
 	var startOvBtn = "<a onclick='Refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
 	displayBtns.append(startOvBtn);
-
-	
 }
 
 function LockWeights(){
@@ -73,6 +69,7 @@ function LockWeights(){
 
 function startCalc(){
 	var checkW = WeightIsCorrect(numboxes);
+	$(".displaygrade").remove();
 	if (checkW ==0){
 		var needVars = numboxes;
 		var arr = [];
@@ -113,33 +110,34 @@ function WeightIsCorrect(numboxes){
 }
 
 function DisplayGrade(grade){
+	var whatgot = "This student got a ";
 	switch (true){
 		case (grade>94.9):
-			alert("They got a "+grade+"! This student gets an A! This kid must have tried really hard.");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A! This kid must have tried really hard.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<95) && (grade>89.9) ):
-			alert("They got a "+grade+"! This student gets an A-! This kid must have tried really hard.");
+			$("<p>"+whatgot+grade+"! This student gets an A-! This kid must have tried really hard.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<90) && (grade>86.9) ):
-			alert("They got a "+grade+"! This student gets an B+! This kid must have tried.");	
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B+! This kid must have tried.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<87) && (grade>83.9) ):
-			alert("They got a "+grade+"! This student gets an B! This kid must have tried.");	
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B! This kid must have tried.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<84) && (grade>79.9) ):
-			alert("They got a "+grade+"! This student gets an B-! This kid must have barely tried.");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B-! This kid must have barely tried.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<80) && (grade>75.9) ):
-			alert("They got a "+grade+"! This student gets an C+! This kid must not have tried.");	
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C+! This kid must not have tried.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<75) && (grade>69.9) ):
-			alert("They got a "+grade+"! This student gets an C! This kid must not have given a shit. You should fail them.");	
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C! This kid must not have cared.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<70) && (grade>64.9) ):
-			alert("They got a "+grade+"! This student gets an D! This kid is a waste to society. Just fail them because it doesnt make a difference."); 
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an D! Just fail them because it doesnt make a difference.</p>").insertAfter(".mainform1");
 			break;
 		case (grade<65):
-			alert("They got a "+grade+"! This student gets an F! This kid should have been aborted. Push them in front of a bus.");	
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an F! Enjoy teaching them next year</p>").insertAfter(".mainform1");
 			break;	
 	}	
 }
