@@ -26,7 +26,7 @@ function createForm(fieldnums){
 	var boxes=1;
 	for (i=0; i<fieldnums; i++)
 	{
-		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/> <a class='indiv-weight' onclick='LockWeights();'><input type='button' id='weight-lock"+boxes+"' value='Weight Lock' name='weight-lock'/></a>");
+		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/> <input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Weight Lock' name='weight-lock' onclick='LockIndiWeights();'/>");
 		boxes=boxes+1;
 	}
 	addMainBtns();
@@ -66,6 +66,13 @@ function LockWeights(){
 			weightLocker=false;
 		}	
 }
+
+function LockIndiWeights(){
+	alert('yellow');
+//<a class='indiv-weight' onclick='LockIndiWeights($(this));'><input type='button' id='weight-lock"+boxes+"' value='Weight Lock' name='weight-lock'/></a>
+	//var test = this.obj;
+	//alert(test);
+};
 
 function startCalc(){
 	var checkW = WeightIsCorrect(numboxes);
