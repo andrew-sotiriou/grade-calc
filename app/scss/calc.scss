@@ -19,10 +19,10 @@ input[type='number']{
 	padding-top:20px;
 }
 
-#weight-lock{
+#weight-lock-global{
 	margin-left:20px;
 }
 
 #refresh{
-	@extend #weight-lock;
+	@extend #weight-lock-global;
 }

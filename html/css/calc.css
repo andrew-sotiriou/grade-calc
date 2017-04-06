@@ -14,5 +14,5 @@ input[type='number'] {
 #form-buttons {
   padding-top: 20px; }
 
-#weight-lock, #refresh {
+#weight-lock-global, #refresh {
   margin-left: 20px; }
