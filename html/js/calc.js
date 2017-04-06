@@ -26,7 +26,7 @@ function createForm(fieldnums){
 	var boxes=1;
 	for (i=0; i<fieldnums; i++)
 	{
-		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/> <a onclick='LockWeights();'><input type='button' id='weight-lock"+boxes+"' value='Weight Lock' name='weight-lock'/></a>");
+		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/> <a class='indiv-weight' onclick='LockWeights();'><input type='button' id='weight-lock"+boxes+"' value='Weight Lock' name='weight-lock'/></a>");
 		boxes=boxes+1;
 	}
 	addMainBtns();
@@ -36,8 +36,8 @@ function addMainBtns(){
 	var displayBtns = $("#form-buttons");
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
 	displayBtns.append(calcBtn);
-	//var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock' value='Weight Lock' name='weight-lock'/></a>";
-	//displayBtns.append(weightBtn);
+	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock-global' value='Weight Lock' name='weight-lock'/></a>";
+	displayBtns.append(weightBtn);
 	var startOvBtn = "<a onclick='Refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
 	displayBtns.append(startOvBtn);
 }
