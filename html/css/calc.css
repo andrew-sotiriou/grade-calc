@@ -15,7 +15,7 @@ input[type='number'] {
   padding-top: 20px; }
 
 .indiv-weight {
-  padding-left: 2%; }
+  margin-left: 2%; }
 
 #weight-lock-global, #refresh {
   margin-left: 20px; }
