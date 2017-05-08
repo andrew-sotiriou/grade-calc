@@ -11,6 +11,9 @@
 input[type='number'] {
   margin-left: 3%; }
 
+input:disabled {
+  background-color: lightgrey; }
+
 #form-buttons {
   padding-top: 20px; }
 
