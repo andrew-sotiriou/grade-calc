@@ -26,7 +26,7 @@ function createForm(fieldnums){
 	var boxes=1;
 	for (i=0; i<fieldnums; i++)
 	{
-		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/> <input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Weight Lock' name='weight-lock' onclick='LockIndiWeights("+boxes+");'/>");
+		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='LockIndiWeights("+boxes+");'/>");
 		boxes=boxes+1;
 	}
 	addMainBtns();
@@ -36,7 +36,7 @@ function addMainBtns(){
 	var displayBtns = $("#form-buttons");
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
 	displayBtns.append(calcBtn);
-	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock-global' value='Weight Lock' name='weight-lock'/></a>";
+	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
 	displayBtns.append(weightBtn);
 	var startOvBtn = "<a onclick='Refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
 	displayBtns.append(startOvBtn);
@@ -50,8 +50,9 @@ function LockWeights(){
 			for (q=1; q<lockem; q++)
 			{
 				$('#weight'+q).prop('disabled', true);
+				$('#weight-lock'+q).val('Individual Un-Lock');
 			}
-			$('#weight-lock').attr('value', 'Un-Lock');
+			$('#weight-lock-global').val('Global Weight Un-Lock');
 			weightLocker=true;
 		}
 	else if (weightLocker==true)
@@ -61,18 +62,25 @@ function LockWeights(){
 			for (q=1; q<lockem; q++)
 			{
 				$('#weight'+q).prop('disabled', false);
+				$('#weight-lock'+q).val('Individual Lock');
 			}
-			$('#weight-lock').attr('value', 'Weight Lock');
+			$('#weight-lock-global').val('Global Weight Lock');
 			weightLocker=false;
 		}	
 }
 
 function LockIndiWeights(num){
 	if ($("#weight"+num).prop('disabled') == true){
-		$("#weight"+num).prop('disabled', false)
+		$("#weight"+num).prop('disabled', false);
+		$("#weight-lock"+num).val('Individual Lock');
+		$('#weight-lock-global').val('Global Weight Lock');
+		weightLocker=false;
 	}
 	else{
-		$("#weight"+num).prop('disabled', true)
+		$("#weight"+num).prop('disabled', true);
+		$("#weight-lock"+num).val('Individual Un-Lock');
+		$('#weight-lock-global').val('Global Weight Un-Lock');
+		weightLocker=true;
 	}
 };
 
@@ -122,31 +130,31 @@ function DisplayGrade(grade){
 	var whatgot = "This student got a ";
 	switch (true){
 		case (grade>94.9):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A! This kid must have tried really hard.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<95) && (grade>89.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A-! This kid must have tried really hard.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A-!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<90) && (grade>86.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B+! This kid must have tried.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B+!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<87) && (grade>83.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B! This kid must have tried.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<84) && (grade>79.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B-! This kid must have barely tried.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B-!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<80) && (grade>75.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C+! This kid must not have tried.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C+!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<75) && (grade>69.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C! This kid must not have cared.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<70) && (grade>64.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an D! Just fail them because it doesnt make a difference.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an D!</p>").insertAfter(".mainform1");
 			break;
 		case (grade<65):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an F! Enjoy teaching them next year</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an F!</p>").insertAfter(".mainform1");
 			break;	
 	}	
 }
