@@ -101,7 +101,7 @@ function startCalc(){
 		DisplayGrade(total);
 	}
 	else{
-		alert("REALLY?! Your weights do not equal 100%. Check your math sucka!")
+		$("<p class='displaygrade'>Your weights do not equal 100%.</p>").insertAfter(".mainform1");
 	}
 }
 
@@ -125,7 +125,7 @@ function DisplayGrade(grade){
 			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A! This kid must have tried really hard.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<95) && (grade>89.9) ):
-			$("<p>"+whatgot+grade+"! This student gets an A-! This kid must have tried really hard.</p>").insertAfter(".mainform1");
+			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A-! This kid must have tried really hard.</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<90) && (grade>86.9) ):
 			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B+! This kid must have tried.</p>").insertAfter(".mainform1");
@@ -156,48 +156,7 @@ function WeightedGrade (grade, weight){
 	return val;
 }
 
-//var numberGrades = { 'A' : 98, 'A-': 92, 'B+': 88, 'B' : 85, 'B-': 82, 'C+': 78, 'C' : 75, 'C-': 72, 'D+': 68, 'D' : 65, 'D-': 62, 'F': 62}
-
 function LetterToNumber(letter){
-	switch (letter){
-		case "A":
-			return "98";
-			break;
-		case "A-":
-			return "92";
-			break;
-		case "B+":
-			return "88";
-			break;
-		case "B":
-			return "85";
-			break;
-		case "B-":
-			return "82";
-			break;
-		case "C+":
-			return "78";
-			break;			
-		case "C":
-			return "75";
-			break;
-		case "C-":
-			return "72";
-			break;
-		case "D+":
-			return "68";
-			break;
-		case "D":
-			return "65";
-			break;
-		case "D-":
-			return "62";
-			break;
-		case "F":
-			return "62";
-			break;
-		default:
-			alert("I said what to put in! Why are you going against the directions that were provided to you? DO IT AGAIN AND FOLLOW DIRECTIONS!");
-			break;			
-	}
+	var numberGrades = { 'A' : 98, 'A-': 92, 'B+': 88, 'B' : 85, 'B-': 82, 'C+': 78, 'C' : 75, 'C-': 72, 'D+': 68, 'D' : 65, 'D-': 62, 'F': 62};
+	return numberGrades[letter];
 }
