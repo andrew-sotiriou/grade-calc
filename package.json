@@ -1,22 +1,30 @@
 {
   "name": "grade-calc",
   "version": "1.0.0",
-  "description": "grade calc",
+  "description": "grade calculator",
   "main": "calc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "andrew",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-jshint": "^2.0.4",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2",
-    "jshint": "^2.9.4"
-  }
+    "gulp-uglify": "^2.1.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "gulp": "^3.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew-sotiriou/grade-calc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrew-sotiriou/grade-calc/issues"
+  },
+  "homepage": "https://github.com/andrew-sotiriou/grade-calc#readme"
 }
-
