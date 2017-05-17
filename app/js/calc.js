@@ -144,7 +144,7 @@ function DisplayGrade(grade){
 		case( (grade<84) && (grade>79.9) ):
 			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B-!</p>").insertAfter(".mainform1");
 			break;
-		case( (grade<80) && (grade>75.9) ):
+		case( (grade<80) && (grade>74.9) ):
 			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C+!</p>").insertAfter(".mainform1");
 			break;
 		case( (grade<75) && (grade>69.9) ):
