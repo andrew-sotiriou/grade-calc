@@ -1,9 +1,10 @@
-var express = require('express')
-var app = express()
+const express = require('express')
+const app = express()
+const config = require('./config')
 
 app.use(express.static('html'))
 
-app.listen(8000, function() {
-    console.log("Server listening on port 8000");
-    console.log("Open a web browser and go to http://localhost:8000")
+app.listen(config.port, () => {
+    console.log('Server listening on port '+ config.port);
+    console.log("Open a web browser and go to http://localhost:"+ config.port)
 })
