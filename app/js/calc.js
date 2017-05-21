@@ -18,10 +18,6 @@ $(document).ready(function() {
 	});
 });
 
-function Refresh(){
-	location.reload(true);
-}
-
 function createForm(fieldnums){
 	var boxes=1;
 	for (i=0; i<fieldnums; i++)
@@ -167,4 +163,8 @@ function WeightedGrade (grade, weight){
 function LetterToNumber(letter){
 	var numberGrades = { 'A' : 98, 'A-': 92, 'B+': 88, 'B' : 85, 'B-': 82, 'C+': 78, 'C' : 75, 'C-': 72, 'D+': 68, 'D' : 65, 'D-': 62, 'F': 62};
 	return numberGrades[letter];
+}
+
+function Refresh(){
+	location.reload(true);
 }
