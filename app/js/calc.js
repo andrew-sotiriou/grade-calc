@@ -34,7 +34,7 @@ function addMainBtns(){
 	displayBtns.append(calcBtn);
 	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
 	displayBtns.append(weightBtn);
-	var startOvBtn = "<a onclick='Refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
+	var startOvBtn = "<a onclick='refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
 	displayBtns.append(startOvBtn);
 }
 
@@ -165,6 +165,6 @@ function LetterToNumber(letter){
 	return numberGrades[letter];
 }
 
-function Refresh(){
+function refresh(){
 	location.reload(true);
 }
