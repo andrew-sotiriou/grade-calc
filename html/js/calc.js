@@ -27,7 +27,7 @@ $(document).ready(function() {
 });
 
 function createForm(fieldnums){
-	var boxes=1;
+	var boxes = 1;
 	for (var i=0; i<fieldnums; i++)
 	{
 		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='lockIndiWeights("+boxes+");'/>");
@@ -106,7 +106,7 @@ function startCalc(){
 			total=total+arr[z];
 		}
 
-		DisplayGrade(total);
+		displayGrade(total);
 	}
 	else{
 		$("<p class='displaygrade'>Your weights do not equal 100%.</p>").insertAfter(".mainform1");
@@ -125,37 +125,8 @@ function weightIsCorrect(numBoxes){
 	return WeightTrue;
 }
 
-function DisplayGrade(grade){
-	var whatgot = "This student got a ";
-	switch (true){
-		case (grade>94.9):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<95) && (grade>89.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an A-!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<90) && (grade>86.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B+!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<87) && (grade>83.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<84) && (grade>79.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an B-!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<80) && (grade>74.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C+!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<75) && (grade>69.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an C!</p>").insertAfter(".mainform1");
-			break;
-		case( (grade<70) && (grade>64.9) ):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an D!</p>").insertAfter(".mainform1");
-			break;
-		case (grade<65):
-			$("<p class='displaygrade'>"+whatgot+grade+"! This student gets an F!</p>").insertAfter(".mainform1");
-			break;	
-	}	
+function displayGrade(grade){
+	$("<p class='displaygrade'>This student got a " + grade + "! This student gets an " + numberToLetter(grade) + "!</p>").insertAfter(".mainform1");
 }
 
 function weightedGrade(grade, weight){
@@ -179,6 +150,18 @@ function letterToNumber(letter){
 		'F'  : 62
 	};
 	return numberGrades[letter];
+}
+
+function numberToLetter(number){
+	if(number >= 95) return "A";
+    if(number >= 90) return "A-";
+    if(number >= 87) return "B+";
+    if(number >= 84) return "B";
+    if(number >= 80) return "B-";
+    if(number >= 75) return "C+";
+    if(number >= 70) return "C";
+    if(number >= 65) return "D";
+    return "F"
 }
 
 function refresh(){
