@@ -34,3 +34,13 @@ input:disabled {
 #refresh{
 	@extend #weight-lock-global;
 }
+
+.incorrect{
+	-webkit-animation: fade 5s linear;
+	-moz-animation: fade 5s linear;
+	animation: fade 5s linear;  
+}
+
+@keyframes fade{
+	to { opacity: 0;}
+}

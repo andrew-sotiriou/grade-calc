@@ -22,3 +22,12 @@ input:disabled {
 
 #weight-lock-global, #refresh {
   margin-left: 20px; }
+
+.incorrect {
+  -webkit-animation: fade 5s linear;
+  -moz-animation: fade 5s linear;
+  animation: fade 5s linear; }
+
+@keyframes fade {
+  to {
+    opacity: 0; } }
