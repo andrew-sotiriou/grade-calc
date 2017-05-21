@@ -85,7 +85,7 @@ function lockIndiWeights(num){
 }
 
 function startCalc(){
-	var checkW = WeightIsCorrect(numBoxes);
+	var checkW = weightIsCorrect(numBoxes);
 	$(".displaygrade").remove();
 	if (checkW ==0){
 		var needVars = numBoxes;
@@ -113,13 +113,12 @@ function startCalc(){
 	}
 }
 
-function WeightIsCorrect(numBoxes){
+function weightIsCorrect(numBoxes){
 	var weightc = numBoxes;
 	weightc++;
 	var WeightTrue=100;
 
-	for (var j=1; j<weightc; j++)
-	{
+	for (var j=1; j<weightc; j++){
 		WeightTrue = WeightTrue - ($('#weight'+j).val());
 	}
 
