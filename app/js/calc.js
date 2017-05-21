@@ -30,7 +30,7 @@ function createForm(fieldnums){
 	var boxes=1;
 	for (var i=0; i<fieldnums; i++)
 	{
-		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='LockIndiWeights("+boxes+");'/>");
+		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='lockIndiWeights("+boxes+");'/>");
 		boxes=boxes+1;
 	}
 	addMainBtns();
@@ -40,49 +40,49 @@ function addMainBtns(){
 	$displayBtns = $("#form-buttons");
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
 	$displayBtns.append(calcBtn);
-	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
+	var weightBtn = "<a onclick='lockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
 	$displayBtns.append(weightBtn);
 	var startOvBtn = "<a onclick='refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
 	$displayBtns.append(startOvBtn);
 }
 
-function LockWeights(){
-	if (weightLock==false){
+function lockWeights(){
+	if (weightLock == false){
 			var lockem = numBoxes;
 			lockem++;
-			for (q=1; q<lockem; q++){
+			for (var q=1; q<lockem; q++){
 				$('#weight'+q).prop('disabled', true);
 				$('#weight-lock'+q).val('Individual Un-Lock');
 			}
 			$('#weight-lock-global').val('Global Weight Un-Lock');
-			weightLock=true;
+			weightLock = true;
 		}
-	else if (weightLock==true){
+	else if (weightLock == true){
 			var lockem = numBoxes;
 			lockem++;
-			for (q=1; q<lockem; q++){
+			for (var q=1; q<lockem; q++){
 				$('#weight'+q).prop('disabled', false);
 				$('#weight-lock'+q).val('Individual Lock');
 			}
 			$('#weight-lock-global').val('Global Weight Lock');
-			weightLock=false;
+			weightLock = false;
 		}	
 }
 
-function LockIndiWeights(num){
+function lockIndiWeights(num){
 	if ($("#weight"+num).prop('disabled') == true){
 		$("#weight"+num).prop('disabled', false);
 		$("#weight-lock"+num).val('Individual Lock');
 		$('#weight-lock-global').val('Global Weight Lock');
-		weightLock=false;
+		weightLock = false;
 	}
 	else{
 		$("#weight"+num).prop('disabled', true);
 		$("#weight-lock"+num).val('Individual Un-Lock');
 		$('#weight-lock-global').val('Global Weight Un-Lock');
-		weightLock=true;
+		weightLock = true;
 	}
-};
+}
 
 function startCalc(){
 	var checkW = WeightIsCorrect(numBoxes);
