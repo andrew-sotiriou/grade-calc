@@ -4,7 +4,6 @@ var weightLock = false,
     $initForm,
     $gradeAmount,
     $displayBtns
-    //$gradeAmountSubmit
 
 $(document).ready(function() { 
     $('#input-grades').click(function() {
@@ -12,7 +11,6 @@ $(document).ready(function() {
  		$("h3,form").removeClass("hide");
  		$("p.display,form.display").addClass("hide");
  		createForm(numBoxes);
- 		weightLock = false;
    	}); 
 	$('#initForm input').keydown(function(e) {
 	    if (e.keyCode == 13) {
@@ -21,7 +19,6 @@ $(document).ready(function() {
 			$("h3,form").removeClass("hide");
 			$("p.display,form.display").addClass("hide");
 			createForm(numBoxes);
-			weightLock = false;
 	    }
 	});
 });
@@ -38,6 +35,7 @@ function createForm(fieldnums){
 
 function addMainBtns(){
 	$displayBtns = $("#form-buttons");
+
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
 	$displayBtns.append(calcBtn);
 	var weightBtn = "<a onclick='lockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
@@ -87,29 +85,26 @@ function lockIndiWeights(num){
 function startCalc(){
 	var checkW = weightIsCorrect(numBoxes);
 	$(".displaygrade").remove();
-	if (checkW ==0){
+	$(".incorrect").remove();
+	if (checkW == 0){
 		var needVars = numBoxes;
 		var arr = [];
 		needVars++;
 		for (var i=1; i<needVars; i++)
 		{
-			//arr.push($('#grade'+i).val().toUpperCase());
-			//arr.push(($('#weight'+i).val())/100);
-			//arr.push( [ (letterToNumber($('#grade'+i).val().toUpperCase())),(($('#weight'+i).val())/100) ] );
-			arr.push(weightedGrade( (letterToNumber($('#grade'+i).val().toUpperCase())) , (($('#weight'+i).val())/100) ) );
-			//console.log($('#weight'+i).val());
-			//console.log(($('#weight'+i).val())/100);
+			arr.push( weightedGrade( (letterToNumber( $('#grade'+i).val().toUpperCase()) ) , (($('#weight'+i).val())/100) ) );
 		}
-		var total=0;
+		var total = 0;
+
 		for(var z=0;z<arr.length;z++)
 		{
-			total=total+arr[z];
+			total = total + arr[z];
 		}
 
 		displayGrade(total);
 	}
 	else{
-		$("<p class='displaygrade'>Your weights do not equal 100%.</p>").insertAfter(".mainform1");
+		$("<p class='incorrect'>Your weights do not equal 100%.</p>").insertAfter(".mainform1");
 	}
 }
 
