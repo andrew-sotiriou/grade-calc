@@ -1,26 +1,34 @@
+"use strict";
+var weightLock = false, 
+	numBoxes,
+    $initForm,
+    $gradeAmount,
+    $displayBtns
+    //$gradeAmountSubmit
+
 $(document).ready(function() { 
     $('#input-grades').click(function() {
- 		numboxes = $('#number-of-grades').val();
+ 		numBoxes = $('#number-of-grades').val();
  		$("h3,form").removeClass("hide");
  		$("p.display,form.display").addClass("hide");
- 		createForm(numboxes);
- 		weightLocker = false;
+ 		createForm(numBoxes);
+ 		weightLock = false;
    	}); 
 	$('#initForm input').keydown(function(e) {
 	    if (e.keyCode == 13) {
 	    	e.preventDefault();
-			numboxes = $('#number-of-grades').val();
+			numBoxes = $('#number-of-grades').val();
 			$("h3,form").removeClass("hide");
 			$("p.display,form.display").addClass("hide");
-			createForm(numboxes);
-			weightLocker = false;
+			createForm(numBoxes);
+			weightLock = false;
 	    }
 	});
 });
 
 function createForm(fieldnums){
 	var boxes=1;
-	for (i=0; i<fieldnums; i++)
+	for (var i=0; i<fieldnums; i++)
 	{
 		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='LockIndiWeights("+boxes+");'/>");
 		boxes=boxes+1;
@@ -29,39 +37,35 @@ function createForm(fieldnums){
 }
 
 function addMainBtns(){
-	var displayBtns = $("#form-buttons");
+	$displayBtns = $("#form-buttons");
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
-	displayBtns.append(calcBtn);
+	$displayBtns.append(calcBtn);
 	var weightBtn = "<a onclick='LockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
-	displayBtns.append(weightBtn);
+	$displayBtns.append(weightBtn);
 	var startOvBtn = "<a onclick='refresh();'><input type='button' id='refresh' value='Start Over' name='refresh' /></a>";
-	displayBtns.append(startOvBtn);
+	$displayBtns.append(startOvBtn);
 }
 
 function LockWeights(){
-	if (weightLocker==false)
-		{
-			var lockem = numboxes;
+	if (weightLock==false){
+			var lockem = numBoxes;
 			lockem++;
-			for (q=1; q<lockem; q++)
-			{
+			for (q=1; q<lockem; q++){
 				$('#weight'+q).prop('disabled', true);
 				$('#weight-lock'+q).val('Individual Un-Lock');
 			}
 			$('#weight-lock-global').val('Global Weight Un-Lock');
-			weightLocker=true;
+			weightLock=true;
 		}
-	else if (weightLocker==true)
-		{
-			var lockem = numboxes;
+	else if (weightLock==true){
+			var lockem = numBoxes;
 			lockem++;
-			for (q=1; q<lockem; q++)
-			{
+			for (q=1; q<lockem; q++){
 				$('#weight'+q).prop('disabled', false);
 				$('#weight-lock'+q).val('Individual Lock');
 			}
 			$('#weight-lock-global').val('Global Weight Lock');
-			weightLocker=false;
+			weightLock=false;
 		}	
 }
 
@@ -70,24 +74,24 @@ function LockIndiWeights(num){
 		$("#weight"+num).prop('disabled', false);
 		$("#weight-lock"+num).val('Individual Lock');
 		$('#weight-lock-global').val('Global Weight Lock');
-		weightLocker=false;
+		weightLock=false;
 	}
 	else{
 		$("#weight"+num).prop('disabled', true);
 		$("#weight-lock"+num).val('Individual Un-Lock');
 		$('#weight-lock-global').val('Global Weight Un-Lock');
-		weightLocker=true;
+		weightLock=true;
 	}
 };
 
 function startCalc(){
-	var checkW = WeightIsCorrect(numboxes);
+	var checkW = WeightIsCorrect(numBoxes);
 	$(".displaygrade").remove();
 	if (checkW ==0){
-		var needVars = numboxes;
+		var needVars = numBoxes;
 		var arr = [];
 		needVars++;
-		for (i=1; i<needVars; i++)
+		for (var i=1; i<needVars; i++)
 		{
 			//arr.push($('#grade'+i).val().toUpperCase());
 			//arr.push(($('#weight'+i).val())/100);
@@ -97,7 +101,7 @@ function startCalc(){
 			//console.log(($('#weight'+i).val())/100);
 		}
 		var total=0;
-		for(z=0;z<arr.length;z++)
+		for(var z=0;z<arr.length;z++)
 		{
 			total=total+arr[z];
 		}
@@ -109,12 +113,12 @@ function startCalc(){
 	}
 }
 
-function WeightIsCorrect(numboxes){
-	var weightc = numboxes;
+function WeightIsCorrect(numBoxes){
+	var weightc = numBoxes;
 	weightc++;
 	var WeightTrue=100;
 
-	for (j=1; j<weightc; j++)
+	for (var j=1; j<weightc; j++)
 	{
 		WeightTrue = WeightTrue - ($('#weight'+j).val());
 	}
