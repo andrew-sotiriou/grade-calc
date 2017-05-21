@@ -95,8 +95,8 @@ function startCalc(){
 		{
 			//arr.push($('#grade'+i).val().toUpperCase());
 			//arr.push(($('#weight'+i).val())/100);
-			//arr.push( [ (LetterToNumber($('#grade'+i).val().toUpperCase())),(($('#weight'+i).val())/100) ] );
-			arr.push( WeightedGrade( (LetterToNumber($('#grade'+i).val().toUpperCase())) , (($('#weight'+i).val())/100) ) );
+			//arr.push( [ (letterToNumber($('#grade'+i).val().toUpperCase())),(($('#weight'+i).val())/100) ] );
+			arr.push(weightedGrade( (letterToNumber($('#grade'+i).val().toUpperCase())) , (($('#weight'+i).val())/100) ) );
 			//console.log($('#weight'+i).val());
 			//console.log(($('#weight'+i).val())/100);
 		}
@@ -158,13 +158,26 @@ function DisplayGrade(grade){
 	}	
 }
 
-function WeightedGrade (grade, weight){
+function weightedGrade(grade, weight){
 	var val = grade * weight;
 	return val;
 }
 
-function LetterToNumber(letter){
-	var numberGrades = { 'A' : 98, 'A-': 92, 'B+': 88, 'B' : 85, 'B-': 82, 'C+': 78, 'C' : 75, 'C-': 72, 'D+': 68, 'D' : 65, 'D-': 62, 'F': 62};
+function letterToNumber(letter){
+	var numberGrades = {
+		'A'  : 98,
+		'A-' : 92, 
+		'B+' : 88, 
+		'B'  : 85, 
+		'B-' : 82, 
+		'C+' : 78, 
+		'C'  : 75, 
+		'C-' : 72, 
+		'D+' : 68, 
+		'D'  : 65, 
+		'D-' : 62, 
+		'F'  : 62
+	};
 	return numberGrades[letter];
 }
 
