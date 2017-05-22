@@ -5,7 +5,7 @@ var weightLock = false,
     $gradeAmount,
     $displayBtns;
 
-$(document).ready(function() { 
+/*$(document).ready(function() { 
     $('#grade-amount-submit').click(function() {
  		numBoxes = $('#grade-amount').val();
  		$("h3,form").removeClass("hide");
@@ -21,7 +21,25 @@ $(document).ready(function() {
 			createForm(numBoxes);
 	    }
 	});
-});
+});*/
+
+function init(){
+	$('#grade-amount-submit').click(function() {
+		numBoxes = $('#grade-amount').val();
+		$("h3,form").removeClass("hide");
+		$("p.display,form.display").addClass("hide");
+		createForm(numBoxes);
+	}); 
+	$('#initForm input').keydown(function(e) {
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			numBoxes = $('#grade-amount').val();
+			$("h3,form").removeClass("hide");
+			$("p.display,form.display").addClass("hide");
+			createForm(numBoxes);
+		}
+	});	
+}
 
 function createForm(fieldnums){
 	var boxes = 1;
@@ -30,7 +48,6 @@ function createForm(fieldnums){
 		$displayForm += addGradeWeight(boxes);
 		boxes=boxes+1;
 	}
-	
 	$("#displayform").append($displayForm);
 	addMainBtns();
 }
@@ -159,3 +176,5 @@ function numberToLetter(number){
 function refresh(){
 	location.reload(true);
 }
+
+$(document).ready(init);
