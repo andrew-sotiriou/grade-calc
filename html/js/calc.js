@@ -27,16 +27,16 @@ function init(){
 	$displayBtns = $("#form-buttons");
 	$('#grade-amount-submit').click(function() {
 		numBoxes = $('#grade-amount').val();
-		$(".bg-container").removeClass("hide");
-		$(".sm-container").addClass("hide");
+		$(".bg").removeClass("hide");
+		$(".sm").addClass("hide");
 		createForm(numBoxes);
 	}); 
 	$('#initForm input').keydown(function(e) {
 		if (e.keyCode == 13) {
 			e.preventDefault();
 			numBoxes = $('#grade-amount').val();
-			$(".bg-container").removeClass("hide");
-			$(".sm-container").addClass("hide");
+			$(".bg").removeClass("hide");
+			$(".sm").addClass("hide");
 			createForm(numBoxes);
 		}
 	});	
