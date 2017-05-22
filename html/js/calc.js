@@ -1,13 +1,13 @@
 "use strict";
 var weightLock = false, 
 	numBoxes,
-    $initForm,
+    $displayForm = "",
     $gradeAmount,
     $displayBtns;
 
 $(document).ready(function() { 
-    $('#input-grades').click(function() {
- 		numBoxes = $('#number-of-grades').val();
+    $('#grade-amount-submit').click(function() {
+ 		numBoxes = $('#grade-amount').val();
  		$("h3,form").removeClass("hide");
  		$("p.display,form.display").addClass("hide");
  		createForm(numBoxes);
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	$('#initForm input').keydown(function(e) {
 	    if (e.keyCode == 13) {
 	    	e.preventDefault();
-			numBoxes = $('#number-of-grades').val();
+			numBoxes = $('#grade-amount').val();
 			$("h3,form").removeClass("hide");
 			$("p.display,form.display").addClass("hide");
 			createForm(numBoxes);
@@ -27,15 +27,15 @@ function createForm(fieldnums){
 	var boxes = 1;
 	for (var i=0; i<fieldnums; i++)
 	{
-		$("#displayform").append("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='lockIndiWeights("+boxes+");'/>");
+		$displayForm = $displayForm + ("<p><span class='gradeboxlabel'>Grades "+boxes+"</span><span class='weighboxlabel'>Weight"+boxes+"</span></p><input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='lockIndiWeights("+boxes+");'/>");
 		boxes=boxes+1;
 	}
+	$("#displayform").append($displayForm);
 	addMainBtns();
 }
 
 function addMainBtns(){
 	$displayBtns = $("#form-buttons");
-
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
 	$displayBtns.append(calcBtn);
 	var weightBtn = "<a onclick='lockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
