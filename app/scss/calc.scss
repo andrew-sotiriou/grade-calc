@@ -1,11 +1,7 @@
 @import "../helper/mixins";
 
-*{
-  margin: 0; 
-  padding: 0;
-}
-
-.container {
+/* Placeholder Selectors */
+%container{
     @include translate(-50%,-10%);
 	@include border-radius(10px);
     top: 10%;
@@ -14,20 +10,30 @@
     text-align: center;
     border: 5px solid grey;
     position: fixed;
-
-    .sm{
-    	width: 35%;
-    	height: 15%;
-    }
-
-    .bg{
-
-    }
-
+    
     p{
-	    padding: 5%;
-	    margin: 0%;
-    }
+		padding: 5%;
+		margin: 0%;
+	}
+}
+
+/* Placeholder Selectors */
+
+*{
+  margin: 0; 
+  padding: 0;
+}
+
+.sm{
+	@extend %container;
+	width: 35%;
+	height: 15%;
+}
+
+.bg{
+	@extend %container;
+	width: 50%;
+	height: auto;
 }
 
 .gradeboxlabel {

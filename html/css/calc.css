@@ -1,8 +1,5 @@
-* {
-  margin: 0;
-  padding: 0; }
-
-.container {
+/* Placeholder Selectors */
+.sm, .bg {
   -webkit-transform: translate(-50%, -10%);
   -moz-transform: translate(-50%, -10%);
   transform: translate(-50%, -10%);
@@ -15,12 +12,22 @@
   text-align: center;
   border: 5px solid grey;
   position: fixed; }
-  .container .sm {
-    width: 35%;
-    height: 15%; }
-  .container p {
+  .sm p, .bg p {
     padding: 5%;
     margin: 0%; }
+
+/* Placeholder Selectors */
+* {
+  margin: 0;
+  padding: 0; }
+
+.sm {
+  width: 35%;
+  height: 15%; }
+
+.bg {
+  width: 50%;
+  height: auto; }
 
 .gradeboxlabel {
   text-align: left; }
