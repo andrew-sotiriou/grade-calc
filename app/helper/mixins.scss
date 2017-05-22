@@ -5,6 +5,21 @@
   border-radius: $radius;
 }
 
+@mixin box-shadow($str) {
+  -webkit-box-shadow: #{$str};
+  -moz-box-shadow: #{$str};
+  box-shadow: #{$str};
+}
+
+@mixin linear-gradient($top, $bottom) {
+  background: $top;
+  background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+  background: -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -ms-linear-gradient(top, $top, $bottom);
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%); 
+}
+
 // generic transform
 @mixin transform($transforms) {
   -webkit-transform: $transforms;
