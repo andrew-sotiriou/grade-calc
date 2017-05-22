@@ -10,9 +10,8 @@
     text-align: center;
     border: 5px solid grey;
     position: fixed;
-    
     p{
-		padding: 5%;
+		padding: 4%;
 		margin: 0%;
 	}
 }
@@ -36,37 +35,54 @@
 	height: auto;
 }
 
+.button{
+	@include border-radius(5px);
+	@include linear-gradient(#ffa500, #ffa500);
+	@include box-shadow(grey 3px 3px 5px);
+	padding: 5px 10px;
+	color: white;
+	&:hover{
+		background: #eb9f14;
+		cursor:pointer;
+	}
+	&:focus{
+		outline: 0;
+	}
+}
+
 .gradeboxlabel {
-    text-align:left;
+    text-align: left;
 } 
 
 .weighboxlabel{
-	text-align:left;
-	padding-left:2%;
+	text-align: left;
+	padding-left: 2%;
 }
 
 .hide{ 
 	display:none;
 }
 
-/*input[type='number']{
-	margin-left:3%;
-}*/
+#initForm input{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 2%;
+}
 
 input:disabled {
     background-color: lightgrey;
 }
 
 #form-buttons{
-	padding-top:20px;
+	padding-top: 20px;
 }
 
 .indiv-weight{
-	margin-left:2%;
+	margin-left: 2%;
 }
 
 #weight-lock-global{
-	margin-left:20px;
+	margin-left: 20px;
 }
 
 #refresh{
