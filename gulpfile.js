@@ -7,7 +7,7 @@ var browserSync = require('browser-sync').create();
 var uglify = require('gulp-uglify');
 
 gulp.task('sass', function() {
-  return gulp.src('app/scss/**/*.scss') 
+  return gulp.src('app/scss/*.scss') 
     .pipe(sass())
     .pipe(gulp.dest('html/css'))
     .pipe(browserSync.reload({
@@ -17,15 +17,15 @@ gulp.task('sass', function() {
 
 // Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('app/js/*.js')
-        .pipe(gulp.dest('html/js'))
-        .pipe(browserSync.reload({
-          stream: true
-        }))
+  return gulp.src('app/js/*.js')
+    .pipe(gulp.dest('html/js'))
+    .pipe(browserSync.reload({
+      stream: true
+  }))
 });
 
 gulp.task('watch', ['browserSync', 'sass', 'move-html', 'scripts'], function (){
-  gulp.watch('app/scss/**/*.scss', ['sass']); 
+  gulp.watch('app/scss/*.scss', ['sass']); 
   gulp.watch('app/js/*.js', ['scripts']); 
   gulp.watch('app/index.html', ['move-html']); 
   // Other watchers
