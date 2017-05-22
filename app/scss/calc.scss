@@ -1,3 +1,35 @@
+@import "../helper/mixins";
+
+*{
+  margin: 0; 
+  padding: 0;
+}
+
+.container {
+    @include translate(-50%,-10%);
+	@include border-radius(10px);
+    top: 10%;
+    left: 50%;
+    background-color: white;
+    text-align: center;
+    border: 5px solid grey;
+    position: fixed;
+
+    .sm{
+    	width: 35%;
+    	height: 15%;
+    }
+
+    .bg{
+
+    }
+
+    p{
+	    padding: 5%;
+	    margin: 0%;
+    }
+}
+
 .gradeboxlabel {
     text-align:left;
 } 
@@ -36,9 +68,7 @@ input:disabled {
 }
 
 .incorrect{
-	-webkit-animation: fade 5s linear;
-	-moz-animation: fade 5s linear;
-	animation: fade 5s linear;  
+	@include animation(fade 5s linear); 
 }
 
 @keyframes fade{

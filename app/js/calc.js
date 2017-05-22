@@ -24,18 +24,19 @@ var weightLock = false,
 });*/
 
 function init(){
+	$displayBtns = $("#form-buttons");
 	$('#grade-amount-submit').click(function() {
 		numBoxes = $('#grade-amount').val();
-		$("h3,form").removeClass("hide");
-		$("p.display,form.display").addClass("hide");
+		$(".bg-container").removeClass("hide");
+		$(".sm-container").addClass("hide");
 		createForm(numBoxes);
 	}); 
 	$('#initForm input').keydown(function(e) {
 		if (e.keyCode == 13) {
 			e.preventDefault();
 			numBoxes = $('#grade-amount').val();
-			$("h3,form").removeClass("hide");
-			$("p.display,form.display").addClass("hide");
+			$(".bg-container").removeClass("hide");
+			$(".sm-container").addClass("hide");
 			createForm(numBoxes);
 		}
 	});	
@@ -59,7 +60,7 @@ function addGradeWeight(num){
 }
 
 function addMainBtns(){
-	$displayBtns = $("#form-buttons");
+
 	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' value='Calculate' name='calculate'/></a>";
 	$displayBtns.append(calcBtn);
 	var weightBtn = "<a onclick='lockWeights();'><input type='button' id='weight-lock-global' value='Global Weight Lock' name='weight-lock-global'/></a>";
