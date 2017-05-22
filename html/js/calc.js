@@ -25,15 +25,20 @@ $(document).ready(function() {
 
 function createForm(fieldnums){
 	var boxes = 1;
-	//var
 	for (var i=0; i<fieldnums; i++)
 	{
-		$displayForm = $displayForm + ("<p><span class='gradeboxlabel'>Grade "+boxes+"</span> <input type='text' name='grade"+boxes+"' id='grade"+boxes+"'/> <span class='weighboxlabel'>Weight "+boxes+"</span> <input type='number' name='weight"+boxes+"' id='weight"+boxes+"'/><input type='button' id='weight-lock"+boxes+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+boxes+"' onclick='lockIndiWeights("+boxes+");'/></p>");
+		$displayForm += addGradeWeight(boxes);
 		boxes=boxes+1;
 	}
 	
 	$("#displayform").append($displayForm);
 	addMainBtns();
+}
+
+function addGradeWeight(num){
+	var newpar = "<p>";
+	newpar += "<span class='gradeboxlabel'>Grade "+num+"</span> <input type='text' name='grade"+num+"' id='grade"+num+"'/> <span class='weighboxlabel'>Weight "+num+"</span> <input type='number' name='weight"+num+"' id='weight"+num+"'/><input type='button' id='weight-lock"+num+"' class='indiv-weight' value='Individual Lock' name='weight-lock"+num+"' onclick='lockIndiWeights("+num+");'/>"
+	return newpar;
 }
 
 function addMainBtns(){
