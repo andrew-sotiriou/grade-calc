@@ -21,6 +21,9 @@
   margin: 0;
   padding: 0; }
 
+html {
+  background: #89cff0; }
+
 .sm {
   width: 35%;
   height: 15%; }
@@ -28,6 +31,8 @@
 .bg {
   width: 50%;
   height: auto; }
+  .bg p {
+    padding: 2%; }
 
 .button {
   -webkit-border-radius: 5px;
@@ -69,7 +74,8 @@ input:disabled {
   background-color: lightgrey; }
 
 #form-buttons {
-  padding-top: 20px; }
+  margin-top: 3%;
+  margin-bottom: 3%; }
 
 .indiv-weight {
   margin-left: 2%; }

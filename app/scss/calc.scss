@@ -23,6 +23,10 @@
   padding: 0;
 }
 
+html{
+	background: #89cff0;
+}
+
 .sm{
 	@extend %container;
 	width: 35%;
@@ -33,6 +37,9 @@
 	@extend %container;
 	width: 50%;
 	height: auto;
+	p{
+		padding: 2%;
+	}
 }
 
 .button{
@@ -74,7 +81,8 @@ input:disabled {
 }
 
 #form-buttons{
-	padding-top: 20px;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
 
 .indiv-weight{
