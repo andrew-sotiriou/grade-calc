@@ -34,24 +34,26 @@ html {
   height: auto; }
   .bg p {
     padding: 2%; }
+    .bg p .display-grade {
+      font-weight: normal; }
 
 .button {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #ffa500;
-  background: -webkit-gradient(linear, left top, left bottom, from(#ffa500), to(#ffa500));
-  background: -webkit-linear-gradient(top, #ffa500 0%, #ffa500 100%);
-  background: -moz-linear-gradient(top, #ffa500 0%, #ffa500 100%);
-  background: -ms-linear-gradient(top, #ffa500, #ffa500);
-  background: linear-gradient(to bottom, #ffa500 0%, #ffa500 100%);
+  background: #ea5cbd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ea5cbd), to(#ea5cbd));
+  background: -webkit-linear-gradient(top, #ea5cbd 0%, #ea5cbd 100%);
+  background: -moz-linear-gradient(top, #ea5cbd 0%, #ea5cbd 100%);
+  background: -ms-linear-gradient(top, #ea5cbd, #ea5cbd);
+  background: linear-gradient(to bottom, #ea5cbd 0%, #ea5cbd 100%);
   -webkit-box-shadow: grey 3px 3px 5px;
   -moz-box-shadow: grey 3px 3px 5px;
   box-shadow: grey 3px 3px 5px;
   padding: 5px 10px;
   color: white; }
   .button:hover {
-    background: #eb9f14;
+    background: #dd1ca0;
     cursor: pointer; }
   .button:focus {
     outline: 0; }
@@ -85,9 +87,11 @@ input:disabled {
   margin-left: 20px; }
 
 .incorrect {
-  -webkit-animation: fade 5s linear;
-  -moz-animation: fade 5s linear;
-  animation: fade 5s linear; }
+  color: red;
+  opacity: 1;
+  -webkit-animation: fade 5s ease;
+  -moz-animation: fade 5s ease;
+  animation: fade 5s ease; }
 
 @keyframes fade {
   to {

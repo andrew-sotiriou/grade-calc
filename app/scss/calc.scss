@@ -40,17 +40,20 @@ html{
 	height: auto;
 	p{
 		padding: 2%;
+		.display-grade{
+			font-weight: normal;
+		}
 	}
 }
 
 .button{
 	@include border-radius(5px);
-	@include linear-gradient(#ffa500, #ffa500);
+	@include linear-gradient(#ea5cbd, #ea5cbd);
 	@include box-shadow(grey 3px 3px 5px);
 	padding: 5px 10px;
 	color: white;
 	&:hover{
-		background: #eb9f14;
+		background: #dd1ca0;
 		cursor:pointer;
 	}
 	&:focus{
@@ -99,7 +102,9 @@ input:disabled {
 }
 
 .incorrect{
-	@include animation(fade 5s linear); 
+	color: red;
+    opacity: 1;
+	@include animation(fade 5s ease); 
 }
 
 @keyframes fade{
