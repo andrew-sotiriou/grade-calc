@@ -40,7 +40,7 @@ html{
 	height: auto;
 	p{
 		padding: 2%;
-		.display-grade{
+		&.displaygrade{
 			font-weight: normal;
 		}
 	}

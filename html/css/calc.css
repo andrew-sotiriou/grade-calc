@@ -34,7 +34,7 @@ html {
   height: auto; }
   .bg p {
     padding: 2%; }
-    .bg p .display-grade {
+    .bg p.displaygrade {
       font-weight: normal; }
 
 .button {

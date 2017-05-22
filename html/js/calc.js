@@ -5,24 +5,6 @@ var weightLock = false,
     $gradeAmount,
     $displayBtns;
 
-/*$(document).ready(function() { 
-    $('#grade-amount-submit').click(function() {
- 		numBoxes = $('#grade-amount').val();
- 		$("h3,form").removeClass("hide");
- 		$("p.display,form.display").addClass("hide");
- 		createForm(numBoxes);
-   	}); 
-	$('#initForm input').keydown(function(e) {
-	    if (e.keyCode == 13) {
-	    	e.preventDefault();
-			numBoxes = $('#grade-amount').val();
-			$("h3,form").removeClass("hide");
-			$("p.display,form.display").addClass("hide");
-			createForm(numBoxes);
-	    }
-	});
-});*/
-
 function init(){
 	$displayBtns = $("#form-buttons");
 	$('#grade-amount-submit').click(function() {
