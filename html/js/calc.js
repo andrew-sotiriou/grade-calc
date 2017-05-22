@@ -3,7 +3,7 @@ var weightLock = false,
 	numBoxes,
     $initForm,
     $gradeAmount,
-    $displayBtns
+    $displayBtns;
 
 $(document).ready(function() { 
     $('#input-grades').click(function() {
@@ -46,25 +46,21 @@ function addMainBtns(){
 
 function lockWeights(){
 	if (weightLock == false){
-			var lockem = numBoxes;
-			lockem++;
-			for (var q=1; q<lockem; q++){
-				$('#weight'+q).prop('disabled', true);
-				$('#weight-lock'+q).val('Individual Un-Lock');
-			}
-			$('#weight-lock-global').val('Global Weight Un-Lock');
-			weightLock = true;
+		for (var q=1; q<=numBoxes; q++){
+			$('#weight'+q).prop('disabled', true);
+			$('#weight-lock'+q).val('Individual Un-Lock');
 		}
+		$('#weight-lock-global').val('Global Weight Un-Lock');
+		weightLock = true;
+	}
 	else if (weightLock == true){
-			var lockem = numBoxes;
-			lockem++;
-			for (var q=1; q<lockem; q++){
-				$('#weight'+q).prop('disabled', false);
-				$('#weight-lock'+q).val('Individual Lock');
-			}
-			$('#weight-lock-global').val('Global Weight Lock');
-			weightLock = false;
-		}	
+		for (var q=1; q<=numBoxes; q++){
+			$('#weight'+q).prop('disabled', false);
+			$('#weight-lock'+q).val('Individual Lock');
+		}
+		$('#weight-lock-global').val('Global Weight Lock');
+		weightLock = false;
+	}	
 }
 
 function lockIndiWeights(num){
@@ -87,10 +83,8 @@ function startCalc(){
 	$(".displaygrade").remove();
 	$(".incorrect").remove();
 	if (checkW == 0){
-		var needVars = numBoxes;
 		var arr = [];
-		needVars++;
-		for (var i=1; i<needVars; i++)
+		for (var i=1; i<=numBoxes; i++)
 		{
 			arr.push( weightedGrade( (letterToNumber( $('#grade'+i).val().toUpperCase()) ) , (($('#weight'+i).val())/100) ) );
 		}
@@ -109,14 +103,10 @@ function startCalc(){
 }
 
 function weightIsCorrect(numBoxes){
-	var weightc = numBoxes;
-	weightc++;
 	var WeightTrue=100;
-
-	for (var j=1; j<weightc; j++){
+	for (var j=1; j<=numBoxes; j++){
 		WeightTrue = WeightTrue - ($('#weight'+j).val());
 	}
-
 	return WeightTrue;
 }
 
