@@ -2,26 +2,23 @@
 var weightLock = false, 
 	numBoxes,
     $displayForm = "",
-    $gradeAmount,
+    $initForm,
     $displayBtns;
 
 function init(){
 	$displayBtns = $("#form-buttons");
-	$('#grade-amount-submit').click(function() {
-		numBoxes = $('#grade-amount').val();
-		$(".bg").removeClass("hide");
-		$(".sm").addClass("hide");
-		createForm(numBoxes);
-	}); 
-	$('#initForm input').keydown(function(e) {
-		if (e.keyCode == 13) {
-			e.preventDefault();
-			numBoxes = $('#grade-amount').val();
-			$(".bg").removeClass("hide");
-			$(".sm").addClass("hide");
-			createForm(numBoxes);
-		}
-	});	
+	$initForm = $('#initForm');
+	$initForm.on('submit', function(e){
+		e.preventDefault();
+		showCalc();
+	});
+}
+
+function showCalc(){
+	numBoxes = $('#grade-amount').val();
+	$(".bg").removeClass("hide");
+	$(".sm").addClass("hide");
+	createForm(numBoxes);	
 }
 
 function createForm(fieldnums){
