@@ -34,7 +34,11 @@ function createForm(fieldnums){
 
 function addGradeWeight(num){
 	var newpar = "<p>";
-	newpar += "<span class='gradeboxlabel'>Grade "+num+":</span> <input type='text' name='grade"+num+"' id='grade"+num+"'/> <span class='weighboxlabel'>Weight "+num+":</span> <input type='number' name='weight"+num+"' id='weight"+num+"'/><input type='button' id='weight-lock"+num+"' class='indiv-weight button' value='Individual Lock' name='weight-lock"+num+"' onclick='lockIndiWeights("+num+");'/>"
+	var gradeboxes = "<span class='gradeboxlabel'>Grade "+num+":</span> <input type='text' name='grade"+num+"' id='grade"+num+"'/>"
+	var weightboxes = "<span class='weighboxlabel'>Weight "+num+":</span> <input type='number' name='weight"+num+"' id='weight"+num+"'/>"
+	var indibttns = "<input type='button' id='weight-lock"+num+"' class='indiv-weight button' value='Individual Lock' name='weight-lock"+num+"' onclick='lockIndiWeights("+num+");'/>"
+	//newpar += "<span class='gradeboxlabel'>Grade "+num+":</span> <input type='text' name='grade"+num+"' id='grade"+num+"'/> <span class='weighboxlabel'>Weight "+num+":</span> <input type='number' name='weight"+num+"' id='weight"+num+"'/><input type='button' id='weight-lock"+num+"' class='indiv-weight button' value='Individual Lock' name='weight-lock"+num+"' onclick='lockIndiWeights("+num+");'/>"
+	newpar += gradeboxes + weightboxes + indibttns;
 	return newpar;
 }
 
