@@ -37,7 +37,10 @@ html{
 .bg{
 	@extend %container;
 	width: 50%;
-	height: auto;
+	min-height: 50%;
+	max-height: 95%;
+	overflow: scroll;
+	margin-top: 1%;
 	p{
 		padding: 2%;
 		&.displaygrade{
