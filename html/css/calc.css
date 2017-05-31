@@ -23,7 +23,7 @@
   padding: 0; }
 
 html {
-  background: #89cff0; }
+  background: #708090; }
 
 .sm {
   width: 35%;
@@ -44,19 +44,19 @@ html {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #ea5cbd;
-  background: -webkit-gradient(linear, left top, left bottom, from(#ea5cbd), to(#ea5cbd));
-  background: -webkit-linear-gradient(top, #ea5cbd 0%, #ea5cbd 100%);
-  background: -moz-linear-gradient(top, #ea5cbd 0%, #ea5cbd 100%);
-  background: -ms-linear-gradient(top, #ea5cbd, #ea5cbd);
-  background: linear-gradient(to bottom, #ea5cbd 0%, #ea5cbd 100%);
+  background: #907080;
+  background: -webkit-gradient(linear, left top, left bottom, from(#907080), to(#907080));
+  background: -webkit-linear-gradient(top, #907080 0%, #907080 100%);
+  background: -moz-linear-gradient(top, #907080 0%, #907080 100%);
+  background: -ms-linear-gradient(top, #907080, #907080);
+  background: linear-gradient(to bottom, #907080 0%, #907080 100%);
   -webkit-box-shadow: grey 3px 3px 5px;
   -moz-box-shadow: grey 3px 3px 5px;
   box-shadow: grey 3px 3px 5px;
   padding: 5px 10px;
   color: white; }
   .button:hover {
-    background: #dd1ca0;
+    background: #809070;
     cursor: pointer; }
   .button:focus {
     outline: 0; }
