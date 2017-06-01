@@ -51,12 +51,12 @@ html{
 
 .button{
 	@include border-radius(5px);
-	@include linear-gradient(#907080, #907080);
+	@include linear-gradient(#735967, #735967);
 	@include box-shadow(grey 3px 3px 5px);
 	padding: 5px 10px;
 	color: white;
 	&:hover{
-		background: #809070;
+		background: #808000;
 		cursor:pointer;
 	}
 	&:focus{
