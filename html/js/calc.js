@@ -34,7 +34,7 @@ function createForm(fieldnums){
 
 function addGradeWeight(num){
 	var newpar = "<p>";
-	var gradeboxes = "<span class='gradeboxlabel'>Grade "+num+":</span> <input type='text' name='grade"+num+"' id='grade"+num+"'placeholder='Ex: A,b,C...'/>"
+	var gradeboxes = "<span class='gradeboxlabel'>Grade "+num+":</span> <input type='text' name='grade"+num+"' id='grade"+num+"' placeholder='Ex: A,b,C...' pattern='[a-zA-Z-+]+' title='Enter a letter grade.' minlength='1' maxlength='2'/>"
 	var weightboxes = "<span class='weighboxlabel'>Weight "+num+":</span> <input type='number' name='weight"+num+"' id='weight"+num+"'placeholder='Ex: 50,10,35,2,...'/>"
 	var indibttns = "<input type='button' id='weight-lock"+num+"' class='indiv-weight button' value='Individual Lock' name='weight-lock"+num+"' onclick='lockIndiWeights("+num+");'/>"
 	newpar += gradeboxes + weightboxes + indibttns;
@@ -42,8 +42,7 @@ function addGradeWeight(num){
 }
 
 function addMainBtns(){
-
-	var calcBtn = "<a onclick='startCalc();'><input type='button' id='calculate' class='button' value='Calculate' name='calculate'/></a>";
+	var calcBtn = "<input type='submit' id='calculate' class='button' value='Calculate' name='calculate'/>";	
 	$displayBtns.append(calcBtn);
 	var weightBtn = "<a onclick='lockWeights();'><input type='button' id='weight-lock-global' class='button' value='Global Weight Lock' name='weight-lock-global'/></a>";
 	$displayBtns.append(weightBtn);
@@ -85,7 +84,8 @@ function lockIndiWeights(num){
 	}
 }
 
-function startCalc(){
+function startCalc(event){
+	event.preventDefault();
 	var checkW = weightIsCorrect(numBoxes);
 	$(".displaygrade").remove();
 	$(".incorrect").remove();
