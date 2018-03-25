@@ -31,12 +31,15 @@ html{
 .sm{
 	@extend %container;
 	width: 35%;
-	height: 17%;
+	//height: 17%;
+	height: 135px;
 }
 
 .bg{
 	@extend %container;
-	width: 50%;
+	min-width: 80%;
+    width: 80%;
+	//width: 50%;
 	min-height: 50%;
 	max-height: 95%;
 	overflow: scroll;
@@ -81,6 +84,12 @@ html{
 	display: block;
 	margin: 0 auto;
 	margin-bottom: 2%;
+}
+
+@media (max-width: 550px) {
+	#grade-amount{
+		width: 90%;
+	}
 }
 
 input:disabled {
