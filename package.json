@@ -16,10 +16,7 @@
     "gulp-sass": "^3.2.1",
     "gulp-uglify": "^2.1.2"
   },
-  "dependencies": {
-    "express": "^4.15.2",
-    "gulp": "^3.9.1"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andrew-sotiriou/grade-calc.git"
