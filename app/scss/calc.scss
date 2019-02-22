@@ -86,7 +86,7 @@ html{
 	margin-bottom: 2%;
 }
 
-@media (max-width: 550px) {
+@media only screen and (max-width: 550px) {
 	#grade-amount{
 		width: 90%;
 	}
